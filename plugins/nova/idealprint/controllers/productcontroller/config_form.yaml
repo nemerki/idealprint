@@ -1,0 +1,11 @@
+name: ProductController
+modelClass: Nova\Idealprint\Models\Product
+form: $/nova/idealprint/models/product/fields.yaml
+defaultRedirect: nova/idealprint/productcontroller
+create:
+    redirect: 'nova/idealprint/productcontroller/update/:id'
+    redirectClose: nova/idealprint/productcontroller
+update:
+    redirect: nova/idealprint/productcontroller
+    redirectClose: nova/idealprint/productcontroller
+preview: {  }

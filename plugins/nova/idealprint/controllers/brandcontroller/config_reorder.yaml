@@ -1,0 +1,5 @@
+title: BrandController
+modelClass: Nova\Idealprint\Models\Brand
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

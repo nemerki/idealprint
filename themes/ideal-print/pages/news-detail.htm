@@ -1,0 +1,86 @@
+title = "News detail"
+url = "/news/detail/:slug"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[ru] = "/news-detail"
+
+[builderDetails]
+modelClass = "Nova\Idealprint\Models\News"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "title"
+notFoundMessage = "Record not found"
+==
+use Nova\Idealprint\Models\News;
+function onStart()
+{
+
+$model = new News();
+$slug = $this->param('slug');
+$news = $model->where('slug', $slug)->first();
+$id = $news->id;
+$a=$model->where('is_active','1')->where( 'id', '<>', $id)->orderBy('created_at', 'desc')->take(5)->get();
+$this["recent"] = $a;
+}
+
+==
+<!-- Blog -->
+<section class="blog-single padding-top-30 padding-bottom-60">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-9">
+
+                <!-- Blog Post -->
+                <div class="blog-post">
+                    <article>
+                        <img class="img-responsive margin-bottom-20"
+                             src="{{ record.image| resize(847, 500, {mode: 'exact', quality: '70' }) }}" alt="">
+                        <span>
+                            <i class="fa fa-bookmark-o"></i>
+                            {{ record.created_at|date("d.m.Y") }}
+                        </span>
+                        <h5>{{ record.title }}</h5>
+                        {{ record.content |raw }}
+                    </article>
+
+
+                </div>
+            </div>
+
+            <!-- Side Bar -->
+            <div class="col-md-3">
+                <div class="shop-side-bar">
+
+
+                    <!-- Recent Posts -->
+                    <h6>{{ 'Recent Posts'|_ }}</h6>
+                    <div class="recent-post">
+                        {% for rec in recent %}
+                            <!-- Recent Posts -->
+                            <div class="media">
+                                <div class="media-left"><a href="{{ 'news-detail'|page({ slug: rec.slug }) }}">
+                                        <img class="img-responsive"
+                                                                          src="{{ rec.image| resize(80, 50, { mode: 'exact',quality: '70' }) }}"
+                                                                          alt="">
+                                    </a>
+                                </div>
+                                <div class="media-body">
+                                    <a href="{{ 'news-detail'|page({ slug: rec.slug }) }}">{{ rec.title }}</a>
+                                    <span>  {{ rec.created_at|date("d.m.Y") }}</span>
+                                </div>
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

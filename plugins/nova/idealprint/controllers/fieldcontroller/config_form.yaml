@@ -1,0 +1,11 @@
+name: FieldController
+modelClass: Nova\Idealprint\Models\Field
+form: $/nova/idealprint/models/field/fields.yaml
+defaultRedirect: nova/idealprint/fieldcontroller
+create:
+    redirect: 'nova/idealprint/fieldcontroller/update/:id'
+    redirectClose: nova/idealprint/fieldcontroller
+update:
+    redirect: nova/idealprint/fieldcontroller
+    redirectClose: nova/idealprint/fieldcontroller
+preview: {  }

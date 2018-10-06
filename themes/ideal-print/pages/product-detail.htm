@@ -1,0 +1,199 @@
+title = "Product Detail"
+url = "/product/detail/:slug"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[ru] = "/product-detail"
+
+[builderDetails productDetail]
+modelClass = "Nova\Idealprint\Models\Product"
+identifierValue = "{{ :slug }}"
+modelKeyColumn = "slug"
+displayColumn = "title"
+notFoundMessage = "Record not found"
+
+[Filter]
+
+
+==
+<?php
+use Nova\Idealprint\Models\Product;
+function onStart()
+{
+
+$model = new Product();
+$slug = $this->param('slug');
+$product = $model->where('slug', $slug)->first();
+$id = $product->id;
+$category_id = $product->cartegory_id;
+$a=$model->where('is_active','1')->where([ ['cartegory_id', '=', $category_id], ['id', '<>', $id], ])->orderBy('created_at', 'desc')->take(15)->get();
+
+$this["samecategory"] = $a;
+}
+?>
+==
+<!-- Content -->
+<div id="content">
+
+    <!-- Products -->
+    <section class="padding-top-40 padding-bottom-60">
+        <div class="container">
+            <div class="row">
+
+                <!-- Shop Side Bar -->
+                {% partial "sidebar"  partialsRecords = record %}
+
+
+                <!-- Products -->
+                <div class="col-md-9">
+                    <div class="product-detail partialsDiv">
+                        <div class="product">
+                            <div class="row">
+                                <!-- Slider Thumb -->
+                                <div class="col-xs-5">
+                                    <article class="slider-item on-nav">
+                                        <div class="thumb-slider">
+                                            <ul class="slides">
+                                                <li data-thumb="{{ record.image| resize(77,77,{ mode: 'crop', quality: '60' }) }}">
+                                                    <img
+                                                        src="{{ record.image| resize(377,377,{ mode: 'crop', quality: '60' }) }}"
+                                                        alt=""></li>
+                                                {% for rec in record.gallery %}
+
+                                                    <li data-thumb="{{ rec| resize(77,77,{ mode: 'crop', quality: '60' }) }}">
+                                                        <img
+                                                            src="{{ rec| resize(377,377,{ mode: 'crop', quality: '60' }) }}"
+                                                            alt=""></li>
+                                                {% endfor %}
+
+                                            </ul>
+                                        </div>
+                                    </article>
+                                </div>
+                                <!-- Item Content -->
+                                <div class="col-xs-7"><span class="tags">{{ record.cartegory.name }}</span>
+                                    <h5>{{ record.title }}</h5>
+
+                                    <!-- List Details -->
+                                    <div class="bullet-round-list">
+                                        {{ record.description|raw }}
+                                    </div>
+                                    <!-- Colors -->
+                                    <div class="row">
+                                        <div class="col-xs-5">
+                                            <div class="clr">
+                                                {% for rec in record.colors %}
+                                                    <span style="background:{{ rec.color_code }}"></span>
+                                                {% endfor %}
+
+                                            </div>
+                                        </div>
+                                        <!-- Sizes -->
+                                        {# <div class="col-xs-7">
+                                             <div class="sizes"><a href="#.">S</a> <a class="active" href="#.">M</a> <a
+                                                     href="#.">L</a> <a href="#.">XL</a></div>
+                                         </div>
+                                     </div>#}
+                                        <!-- Compare Wishlist -->
+                                        {#  <ul class="cmp-list">
+                                              <li><a href="#."><i class="fa fa-heart"></i> Add to Wishlist</a></li>
+                                              <li><a href="#."><i class="fa fa-navicon"></i> Add to Compare</a></li>
+                                              <li><a href="#."><i class="fa fa-envelope"></i> Email to a friend</a></li>
+                                          </ul>#}
+                                        <!-- Quinty -->
+                                        {# <div class="quinty">
+                                             <input type="number" value="01">
+                                         </div>
+                                         <a href="#." class="btn-round"><i class="icon-basket-loaded margin-right-5"></i> Add
+                                             to Cart</a>#}
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Details Tab Section-->
+                            <div class="item-tabs-sec">
+
+                                <!-- Nav tabs -->
+                                <ul class="nav" role="tablist">
+                                    <li role="presentation" class="active"><a href="#pro-detil" role="tab"
+                                                                              data-toggle="tab">{{ 'Product Details'|_ }}</a>
+                                    </li>
+                                    {# <li role="presentation"><a href="#cus-rev" role="tab" data-toggle="tab">Customer
+                                             Reviews</a></li>
+                                     <li role="presentation"><a href="#ship" role="tab" data-toggle="tab">Shipping &
+                                             Payment</a></li>#}
+                                </ul>
+
+                                <!-- Tab panes -->
+                                <div class="tab-content">
+                                    <div role="tabpanel" class="tab-pane fade in active" id="pro-detil">
+                                        <!-- List Details -->
+                                        <div class="bullet-round-list">
+                                            {{ record.content|raw }}
+                                        </div>
+                                    </div>
+                                    {#            <div role="tabpanel" class="tab-pane fade" id="cus-rev"></div>
+                                                <div role="tabpanel" class="tab-pane fade" id="ship"></div>#}
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Related Products -->
+                        <section class="padding-top-30 padding-bottom-0">
+                            <!-- heading -->
+                            <div class="heading">
+                                <h2>{{ 'Same Category'|_ }}</h2>
+                                <hr>
+                            </div>
+                            <!-- Items Slider -->
+                            <div class="item-slide-4 with-nav">
+                                {% for rec in samecategory %}
+                                    <!-- Product -->
+                                    <div class="product">
+                                        <article><img class="img-responsive" src="{{ rec.image| resize(242, 242, { mode: 'crop', quality: '60' }) }}" alt="">
+                                            <!-- Content -->
+                                            <span class="tag">{{ rec.category.name }}</span>
+                                            <a href="{{ 'product-detail'|page({ slug: rec.slug })  }}" class="tittle">{{ rec.title }}</a>
+                                    </div>
+                                {% endfor %}
+
+
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+    </section>
+
+    <!-- Your Recently Viewed Items -->
+    <section class="padding-bottom-60">
+        <div class="container">
+
+            <!-- heading -->
+            <div class="heading">
+                <h2>Seçılmış Mehsullar</h2>
+                <hr>
+            </div>
+            <!-- Items Slider -->
+            <div class="item-slide-5 with-nav">
+                {% for rec in seleced.records %}
+                    <!-- Product -->
+                    <div class="product">
+                        <article><img class="img-responsive" src="{{ rec.image| resize(242, 242, { mode: 'crop', quality: '60' }) }}" alt="">
+                            <!-- Content -->
+                            <span class="tag">{{ rec.category.name }}</span>
+                            <a href="{{ 'product-detail'|page({ slug: rec.slug })  }}" class="tittle">{{ rec.title }}</a>
+
+                        </article>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+
+

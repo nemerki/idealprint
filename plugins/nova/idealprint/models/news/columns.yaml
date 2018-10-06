@@ -1,0 +1,6 @@
+columns:
+    title:
+        label: 'nova.idealprint::lang.all.title'
+        type: text
+        searchable: true
+        sortable: true

@@ -1,0 +1,21 @@
+{% for rec in partialsRecords %}
+    <div class="col-md-6">
+        <!-- Blog Post -->
+        <div class="blog-post">
+            <article class="row">
+                <div class="col-xs-7"><img class="img-responsive" src="{{ rec.image| resize(350, 248, { mode: 'crop', quality: '60' }) }}" alt=""></div>
+
+                <div class="col-xs-5">
+                    <span><i class="fa fa-bookmark-o"></i>{{ rec.created_at|date("d.m.Y") }}</span>
+                    <a href="#." class="tittle">{{ rec.title }}</a>
+                    <p>{{ rec.description }}</p>
+                    <a href="{{ 'news-detail'|page({ slug: rec.slug }) }}">{{ 'Readmore'|_ }}</a></div>
+            </article>
+        </div>
+
+    </div>
+{% endfor %}
+
+<div class="col-md-12">
+    {{ partialsRecords.render|raw }}
+</div>

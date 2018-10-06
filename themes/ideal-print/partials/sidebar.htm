@@ -1,0 +1,172 @@
+[viewBag]
+
+[RecordList category]
+modelClass = "Nova\Idealprint\Models\Cartegory"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+whereIsActive = 1
+
+[RecordList brand]
+modelClass = "Nova\Idealprint\Models\Brand"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+whereIsActive = 1
+
+[RecordList field]
+modelClass = "Nova\Idealprint\Models\Field"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+whereIsActive = 1
+
+[RecordList color]
+modelClass = "Nova\Idealprint\Models\Color"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+whereIsActive = 1
+
+[RecordList group]
+modelClass = "Nova\Idealprint\Models\Group"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+whereIsActive = 1
+==
+<div class="col-md-3">
+    <div class="shop-side-bar">
+        <form id="sidebarForm">
+            <!-- Categories -->
+            <h6>{{ 'Categories'|_ }}</h6>
+            <div class="checkbox checkbox-primary">
+                <ul>
+                    {% for rec in category.records %}
+                        <li>
+                            <input id="cate{{ rec.id }}" class="styled check" name="category[]" value="{{ rec.id }}"
+                                   type="checkbox" {% if rec.slug==partialsRecords.slug %} checked
+
+                            {% endif %} >
+                            <label for="cate{{ rec.id }}">{{ rec.name }}</label>
+                        </li>
+                    {% endfor %}
+
+
+                </ul>
+            </div>
+
+            <!-- Categories -->
+
+            <!-- Field -->
+            <h6>{{ 'Field'|_ }}</h6>
+            <div class="checkbox checkbox-primary">
+                <ul>
+                    {% for rec in field.records %}
+                        <li>
+                            <input id="field{{ rec.id }}" class="styled check" name="field[]" value="{{ rec.id }}"
+                                   type="checkbox" {% if rec.slug==partialsRecords.slug %} checked
+
+                                {% endif %}>
+                            <label for="field{{ rec.id }}">{{ rec.name }}</label>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Field -->
+
+
+            <!-- Group -->
+            <h6>{{ 'Group'|_ }}</h6>
+            <div class="checkbox checkbox-primary">
+                <ul>
+                    {% for rec in group.records %}
+                        <li>
+                            <input id="group{{ rec.id }}" class="styled check" name="group[]" value="{{ rec.id }}"
+                                   type="checkbox" {% if rec.slug==partialsRecords.slug %} checked
+
+                                {% endif %}>
+                            <label for="group{{ rec.id }}">{{ rec.name }}</label>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+            <!-- Group -->
+
+            <!-- Featured Brands -->
+            <h6>{{ 'Brands'|_ }}</h6>
+            <div class="checkbox checkbox-primary">
+                <ul>
+                    {% for rec in brand.records %}
+                        <li>
+                            <input id="brand{{ rec.id }}" class="styled check" name="brand[]" value="{{ rec.id }}"
+                                   type="checkbox" {% if rec.slug==partialsRecords.slug %} checked
+
+                                {% endif %}>
+                            <label for="brand{{ rec.id }}">{{ rec.name }}</label>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+
+            <!-- Colors -->
+            <h6>{{ 'Colors'|_ }}</h6>
+            <div class="checkbox checkbox-primary">
+                <ul>
+                    {% for rec in color.records %}
+                        <li>
+                            <input id="color{{ rec.id }}" class="styled check" name="color" value="{{ rec.id }}"
+                                   type="radio">
+                            <label for="color{{ rec.id }}">{{ rec.name }}</label>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </form>
+    </div>
+</div>
+{% put scripts %}
+
+    <script>
+        $(document).ready(function () {
+
+
+            $(document).on("change", ".check", function (e) {
+                $.oc.stripeLoadIndicator.show()
+
+                $('#sidebarForm').request('onFilter', {
+
+                    update: {"categoryProduct": '.partialsDiv'},
+                    complete: function () {
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+
+
+                });
+            });
+        });
+
+    </script>
+
+{% endput %}

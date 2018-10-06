@@ -1,0 +1,74 @@
+[viewBag]
+==
+<div class="top-bar">
+    <div class="container">
+        <p>{{ this.theme.top_bar_text }}!</p>
+        <div class="right-sec">
+            <ul>
+                <li><a href="#" data-request="onSwitchLocale" data-request-data="locale: 'az'">AZ</a></li>
+                <li><a href="#" data-request="onSwitchLocale" data-request-data="locale: 'ru'">RU</a></li>
+
+
+            </ul>
+            <div class="social-top">
+
+
+
+                {% if this.theme.facebook %}
+
+                        <a href="{{ this.theme.facebook }}" target="_blank">
+
+                            <i  class="fa fa-facebook-f"></i>
+
+                        </a>
+
+                {% endif %}
+
+
+
+                {% if this.theme.twitter %}
+
+                        <a href="{{ this.theme.twitter }}" target="_blank">
+
+                            <i class="fa fa-twitter"></i>
+
+                        </a>
+
+                {% endif %}
+
+
+                {% if this.theme.instagram %}
+
+                    <a href="{{ this.theme.instagram }}" target="_blank">
+
+                        <i class="fa  fa-instagram"></i>
+
+                    </a>
+
+                {% endif %}
+
+                {% if this.theme.youtube %}
+
+                    <a href="{{ this.theme.youtube }}" target="_blank">
+
+                        <i class="fa fa-youtube-play"></i>
+
+                    </a>
+
+                {% endif %}
+
+                {% if this.theme.googleplus %}
+
+                        <a href="{{ this.theme.googleplus }}" target="_blank">
+
+                            <i class="fa fa-google-plus"></i>
+
+                        </a>
+
+                {% endif %}
+
+
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,68 @@
+name: 'Digital Marketing'
+items:
+    -
+        title: Websites
+        nesting: '0'
+        type: static-page
+        code: Websites
+        reference: websites
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Design Services'
+        nesting: '0'
+        type: static-page
+        code: 'Design Services'
+        reference: design-services
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Social Media Marketing'
+        nesting: '0'
+        type: static-page
+        code: 'Social Media Marketing'
+        reference: social-media-marketing
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Local Listings'
+        nesting: '0'
+        type: static-page
+        code: 'Local Listings'
+        reference: local-listings
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Email Marketing'
+        nesting: '0'
+        type: static-page
+        code: 'Email Marketing'
+        reference: email-marketing
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: 'Foto xidmət'
+        nesting: '0'
+        type: static-page
+        code: 'Foto xidmət'
+        reference: foto-xidmet
+        replace: '0'
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

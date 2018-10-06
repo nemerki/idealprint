@@ -1,0 +1,33 @@
+fields:
+    is_active:
+        label: 'nova.idealprint::lang.all.status'
+        span: auto
+        default: 1
+        type: switch
+    is_home:
+        label: 'nova.idealprint::lang.all.add_home'
+        span: auto
+        type: switch
+    title:
+        label: 'nova.idealprint::lang.all.title'
+        span: full
+        type: text
+    description:
+        label: 'nova.idealprint::lang.news.description'
+        span: full
+        size: ''
+        type: textarea
+    content:
+        label: 'nova.idealprint::lang.news.content'
+        size: ''
+        span: full
+        type: richeditor
+    image:
+        label: 'nova.idealprint::lang.news.image'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        type: fileupload

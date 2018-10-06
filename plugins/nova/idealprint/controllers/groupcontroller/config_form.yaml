@@ -1,0 +1,10 @@
+name: GroupController
+form: $/nova/idealprint/models/group/fields.yaml
+modelClass: Nova\Idealprint\Models\Group
+defaultRedirect: nova/idealprint/groupcontroller
+create:
+    redirect: 'nova/idealprint/groupcontroller/update/:id'
+    redirectClose: nova/idealprint/groupcontroller
+update:
+    redirect: nova/idealprint/groupcontroller
+    redirectClose: nova/idealprint/groupcontroller

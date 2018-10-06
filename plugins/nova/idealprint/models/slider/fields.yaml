@@ -1,0 +1,28 @@
+fields:
+    is_active:
+        label: 'nova.idealprint::lang.all.status'
+        span: full
+        default: 1
+        type: switch
+    link:
+        label: 'nova.idealprint::lang.slider.link'
+        span: auto
+        type: text
+    btn_text:
+        label: 'nova.idealprint::lang.slider.btn_text'
+        span: auto
+        type: text
+    content:
+        label: 'nova.idealprint::lang.slider.content'
+        size: ''
+        span: full
+        type: richeditor
+    image:
+        label: 'nova.idealprint::lang.product.image'
+        span: auto
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        type: fileupload

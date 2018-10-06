@@ -1,0 +1,156 @@
+
+<nav class="navbar ownmenu">
+    <div class="container">
+
+
+
+        <!-- Categories -->
+        <div class="cate-lst"><a data-toggle="collapse" class="cate-style" href="#cater"><i class="fa fa-list-ul"></i>
+                Our Categories </a>
+            <div class="cate-bar-in">
+                <div id="cater" class="collapse">
+                    <ul>
+                        {% for rec in category.records %}
+                            <li><a href="{{ 'category'|page({ slug: rec.slug }) }}">{{ rec.name }}</a></li>
+                        {% endfor %}
+
+
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Navbar Header -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nav-open-btn"
+                    aria-expanded="false"><span><i class="fa fa-navicon"></i></span></button>
+        </div>
+        <!-- NAV -->
+        <div class="collapse navbar-collapse" id="nav-open-btn">
+            <ul class="nav">
+
+
+                <!-- Mega Menu Nav -->
+                <li class="dropdown megamenu">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'Məhsullar'|_ }} </a>
+                    <div class="dropdown-menu animated-2s fadeInUpHalf">
+                        <div class="mega-inside">
+
+                            <div class="row">
+                                {% for rec in group.records %}
+                                    {% if rec.id==1 %}
+                                        <div class="col-sm-3">
+                                            <a style="padding: 0;" href="{{ 'group'|page({ slug: rec.slug }) }}"><h6>{{ 'Əsas məhsulllar'|_ }}</h6></a>
+                                            <ul>
+                                                {% for item in rec.categories %}
+                                                    {% if item.is_active==1 %}
+                                                        <li><a href="{{ 'category'|page({ slug: item.slug }) }}"> {{ item.name }}</a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                    {% if rec.id==2 %}
+                                        <div class="col-sm-3">
+                                            <a style="padding: 0;" href="{{ 'group'|page({ slug: rec.slug }) }}"> <h6>{{ 'Reklam məhsulları'|_ }}</h6></a>
+                                            <ul>
+                                                {% for item in rec.categories %}
+                                                    {% if item.is_active==1 %}
+                                                        <li><a href="{{ 'category'|page({ slug: item.slug }) }}"> {{ item.name }}</a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+
+
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                    {% if rec.id==3 %}
+                                        <div class="col-sm-3">
+                                            <a style="padding: 0;" href="{{ 'group'|page({ slug: rec.slug }) }}">  <h6>{{ 'Biznes'|_ }}</h6></a>
+                                            <ul>
+                                                {% for item in rec.categories %}
+                                                    {% if item.is_active==1 %}
+                                                        <li><a href="{{ 'category'|page({ slug: item.slug }) }}"> {{ item.name }}</a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+                                    {% if rec.id==4 %}
+                                        <div class="col-sm-3">
+                                            <a style="padding: 0;" href="{{ 'group'|page({ slug: rec.slug }) }}">   <h6>{{ 'Tədbirlər və Promosiyalar'|_ }}</h6></a>
+                                            <ul>
+                                                {% for item in rec.categories %}
+                                                    {% if item.is_active==1 %}
+                                                        <li><a href="{{ 'category'|page({ slug: item.slug }) }}"> {{ item.name }}</a></li>
+                                                    {% endif %}
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+                                    {% endif %}
+
+
+                                {% endfor %}
+
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ 'Sahələr üzrə'|_ }} </a>
+                    <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf">
+                        {% for rec in field.records %}
+                            <li><a href="{{ 'field'|page({ slug: rec.slug }) }}"> {{ rec.name }} </a></li>
+                        {% endfor %}
+
+
+                    </ul>
+                </li>
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Digital Marketing</a>
+
+                        {% component 'digitalMarketing' %}
+
+                </li>
+
+                {% for rec in group.records %}
+                    {% if rec.id==5 %}
+                        <li class="dropdown">
+                            <a   href="{{ 'group'|page({ slug: rec.slug }) }}" class="dropdown-toggle" data-toggle="dropdown">
+                           İç və Çöl reklamı
+                            </a>
+                            <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf">
+
+                                {% for item in rec.categories %}
+
+                                    {% if item.is_active==1 %}
+                                        <li><a href="{{ 'category'|page({ slug: item.slug }) }}"> {{ item.name }}</a></li>
+                                    {% endif %}
+
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                    {% if rec.id==6 %}
+                        <li class="dropdown"><a href="{{ 'group'|page({ slug: rec.slug }) }}" class="dropdown-toggle"
+                                                data-toggle="dropdown">Promo </a>
+                            <ul class="dropdown-menu multi-level animated-2s fadeInUpHalf">
+
+                                {% for item in rec.categories %}
+                                    {% if item.is_active==1 %}
+                                        <li><a href="{{ 'category'|page({ slug: item.slug }) }}"> {{ item.name }}</a></li>
+                                    {% endif %}
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    {% endif %}
+                {% endfor %}
+
+                <li> <a href="{{ 'contact'|page }}">{{ 'Əlaqə'|_ }} </a></li>
+            </ul>
+        </div>
+
+
+    </div>
+</nav>

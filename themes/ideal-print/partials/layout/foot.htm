@@ -1,0 +1,27 @@
+[RecordList groupFooter]
+modelClass = "Nova\Idealprint\Models\Group"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+sortColumn = "sort_order"
+sortDirection = "asc"
+whereIsActive = 1
+
+[viewBag]
+==
+<!-- JavaScripts -->
+<script src="{{ 'assets/js/vendors/jquery/jquery.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/vendors/wow.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/vendors/bootstrap.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/vendors/own-menu.js'|theme }}"></script>
+<script src="{{ 'assets/js/vendors/jquery.sticky.js'|theme }}"></script>
+<script src="{{ 'assets/js/vendors/owl.carousel.min.js'|theme }}"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<!-- SLIDER REVOLUTION 4.x SCRIPTS  -->
+<script type="text/javascript" src="{{ 'assets/rs-plugin/js/jquery.tp.t.min.js'|theme }}"></script>
+<script type="text/javascript" src="{{ 'assets/rs-plugin/js/jquery.tp.min.js'|theme }}"></script>
+<script src="{{ 'assets/js/main.js'|theme }}"></script>

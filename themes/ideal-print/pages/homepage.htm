@@ -1,0 +1,354 @@
+title = "Homepage"
+url = "/"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[ru] = "/"
+
+[RecordList selected]
+modelClass = "Nova\Idealprint\Models\Product"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "product-detail"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+pageNumber = "{{ :page }}"
+sortColumn = "created_at"
+sortDirection = "desc"
+whereIsActive = 1
+whereColumn = "is_selected"
+whereOperator = "="
+whereKey = 1
+take = 10
+
+[RecordList recommend]
+modelClass = "Nova\Idealprint\Models\Product"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+whereIsActive = 1
+whereColumn = "is_recommend"
+whereOperator = "="
+whereKey = 1
+take = 10
+
+[RecordList news]
+modelClass = "Nova\Idealprint\Models\News"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+sortColumn = "created_at"
+sortDirection = "desc"
+whereIsActive = 1
+whereColumn = "is_home"
+whereOperator = "="
+whereKey = 1
+take = 10
+
+[RecordList slider]
+modelClass = "Nova\Idealprint\Models\Slider"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "link"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+sortColumn = "created_at"
+sortDirection = "desc"
+whereIsActive = 1
+take = 5
+
+[RecordList banner]
+modelClass = "Nova\Idealprint\Models\Bannr"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "url"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+sortColumn = "created_at"
+sortDirection = "desc"
+whereIsActive = 1
+take = 1
+==
+<!-- Slid Sec -->
+<section class="">
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+
+                <!-- Main Slider  -->
+                <div class="col-md-9 no-padding">
+
+                    <!-- Main Slider Start -->
+                    <div class="tp-banner-container">
+                        <div class="tp-banner">
+                            <ul>
+                                {% for rec in slider.records %}
+                                    <!-- SLIDE  -->
+                                    <li data-transition="random" data-slotamount="7" data-masterspeed="300"
+                                        data-saveperformance="off">
+                                        <!-- MAIN IMAGE -->
+                                        <img src="{{ rec.image| resize(800, 500, { mode: 'crop', quality: '70' }) }}"
+                                             alt="slider" data-bgposition="center bottom"
+                                             data-bgfit="cover" data-bgrepeat="no-repeat">
+
+
+                                        <div class="deneme"
+                                             style="position: absolute; top: 50%; left: 20px; transform: translateY(-50%);">
+                                            <!-- LAYER NR. 3 -->
+                                            <div style="position: static;" class="tp-caption sfl tp-resizeme"
+                                                 data-x="left" data-hoffset="60"
+                                                 data-y="center" data-voffset="10"
+                                                 data-speed="800"
+                                                 data-start="1200"
+                                                 data-easing="Power3.easeInOut"
+                                                 data-splitin="none"
+                                                 data-splitout="none"
+                                                 data-elementdelay="0.1"
+                                                 data-endelementdelay="0.1"
+                                                 data-endspeed="300"
+                                            >{{ rec.content|raw }} </div>
+
+                                            {% if rec.btn_text %}
+                                                <!-- LAYER NR. 4 -->
+                                                <div class="tp-caption lfb tp-resizeme scroll"
+                                                     data-x="left" data-hoffset="60"
+                                                     data-y="center" data-voffset="80"
+                                                     data-speed="800"
+                                                     data-start="1300"
+                                                     data-easing="Power3.easeInOut"
+                                                     data-elementdelay="0.1"
+                                                     data-endelementdelay="0.1"
+                                                     data-endspeed="300"
+                                                     data-scrolloffset="0"
+                                                     style="position: static;">
+                                                    <a href="{{ rec.link }}"
+                                                       class="btn-round big">{{ rec.btn_text }}</a>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </li>
+                                {% endfor %}
+
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Main Slider  -->
+                <div class="col-md-3 ">
+
+                    {% for rec in banner.records %}
+                        <!-- Weekly Slaes  -->
+                        <div
+                            style="padding-top: 0; display: flex; align-items: center; height: 500px; background: url({{ rec.image| resize(185, 455, { mode: 'crop', quality: '70' }) }});"
+                            class="week-sale-bnr">
+                            <div>
+                                {{ rec.content|raw }}
+                                {% if rec.url %}
+                                <a href="{{ rec.url }}" class="btn-round">{{ rec.btn_text }}</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endfor %}
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Content -->
+<div id="content">
+
+
+    <!-- tab Section -->
+    <section class="featur-tabs padding-top-60 padding-bottom-60">
+        <div class="container">
+
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-pills margin-bottom-40" role="tablist">
+                <li role="presentation" class="active"><a href="#featur" aria-controls="featur" role="tab"
+                                                          data-toggle="tab">{{ 'Tövsıye olunanlar'|_ }}</a></li>
+
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Featured -->
+                <div role="tabpanel" class="tab-pane active fade in" id="featur">
+                    <!-- Items Slider -->
+                    <div class="item-slide-5 with-nav">
+                        {% for rec in recommend.records %}
+                            <!-- Product -->
+                            <div class="product">
+                                <article>
+                                    <a href="{{ 'product-detail'|page({ slug: rec.slug }) }}" class="tittle">
+                                        <img class="img-responsive"
+                                             src="{{ rec.image| resize(184,184,{ mode: 'crop', quality: '60' }) }}"
+                                             alt="">
+                                    </a>
+                                    <!-- Content -->
+                                    <span class="tag">{{ rec.cartegory.name }}</span>
+                                    <a href="{{ 'product-detail'|page({ slug: rec.slug }) }}"
+                                       class="tittle">{{ rec.title }}</a>
+                                    <!-- Reviews -->
+                            </div>
+                        {% endfor %}
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Selling Week -->
+    <section class="light-gry-bg padding-top-60 padding-bottom-30">
+        <div class="container">
+
+            <!-- heading -->
+            <div class="heading">
+                <h2>{{ 'Secılmış Mehsullar'|_ }}</h2>
+                <hr>
+            </div>
+
+            <!-- Items -->
+            <div class="item-col-5">
+
+                {% for rec in selected.records %}
+                    <!-- Product -->
+                    <div class="product">
+                        <article>
+                            <a href="{{ 'product-detail'|page({ slug: rec.slug }) }}" class="tittle">
+                                <img class="img-responsive"
+                                     src="{{ rec.image| resize(184,184,{ mode: 'crop', quality: '60' }) }}"
+                                     alt="">
+                            </a>
+                            <!-- Content -->
+                            <span class="tag">{{ rec.cartegory.name }}</span>
+                            <a href="{{ 'product-detail'|page({ slug: rec.slug }) }}"
+                               class="tittle">{{ rec.title }}</a>
+                            <!-- Reviews -->
+                    </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Tabs Sec -->
+    <section class="main-tabs-sec padding-top-60 padding-bottom-0">
+        <div class="container">
+            <ul class="nav margin-bottom-40" role="tablist">
+
+                {% for rec in group.records %}
+                    <li role="presentation" class="{% if loop.index==1 %}
+                        active
+                    {% endif %}">
+                        <a href="#tab{{ rec.id }}" aria-controls="on-sal" role="tab" data-toggle="tab">{{ rec.name }}
+                        </a>
+                    </li>
+                {% endfor %}
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+
+
+                {% for rec in group.records %}
+                    <div role="tabpanel" class="tab-pane fade {% if loop.index==1 %}
+                        active in
+                    {% endif %}" id="tab{{ rec.id }}">
+
+                        <!-- Items -->
+                        <div class="item-col-5">
+                            {% set count = 0 %}
+
+                            {% for category in rec.categories %}
+
+                                {% for item in category.homeProducts %}
+
+                                    {% if  count < 15 and item.is_recommend==0 and   item.is_selected==0 %}
+                                        {% set count= count+1 %}
+                                        <!-- Product -->
+                                        <div class="product">
+                                            <article><img class="img-responsive"
+                                                          src="{{ item.image| resize(184,184,{ mode: 'crop', quality: '60' }) }}"
+                                                          alt="">
+
+                                                <!-- Content -->
+                                                <span class="tag">{{ category.name }}  </span>
+                                                <a href="{{ 'product-detail'|page({ slug: rec.slug }) }}"
+                                                   class="tittle">{{ item.title }}</a>
+
+                                            </article>
+                                        </div>
+                                    {% endif %}
+
+                                {% endfor %}
+
+                            {% endfor %}
+
+
+                        </div>
+                    </div>
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Top Selling Week -->
+    <section class="padding-top-60 padding-bottom-60">
+        <div class="container">
+
+            <!-- heading -->
+            <div class="heading">
+                <h2>{{ 'News'|_ }}</h2>
+                <hr>
+            </div>
+            <div id="blog-slide" class="with-nav">
+
+                {% for rec in news.records %}
+                    <!-- Blog Post -->
+                    <div class="blog-post">
+                        <article><img class="img-responsive"
+                                      src="{{ rec.image| resize(360, 220, { mode: 'crop', quality: '60' }) }}" alt="">
+                            <span><i
+                                    class="fa fa-bookmark-o"></i>{{ rec.created_at|date("d.m.Y") }}</span>
+                            <a href="#." class="tittle">{{ rec.title }}</a>
+                            <p>{{ rec.description }}</p>
+                            <a href="{{ 'news-detail'|page({ slug: rec.slug }) }}">{{ 'Readmore'|_ }}</a></article>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+
+
+</div>
+<!-- End Content -->

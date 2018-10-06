@@ -1,0 +1,72 @@
+fields:
+    is_recommend:
+        label: 'nova.idealprint::lang.product.recommend'
+        span: auto
+        type: switch
+    is_selected:
+        label: 'nova.idealprint::lang.product.selected'
+        span: auto
+        type: switch
+    is_active:
+        label: 'nova.idealprint::lang.all.status'
+        span: auto
+        default: 1
+        type: switch
+    title:
+        label: 'nova.idealprint::lang.all.title'
+        span: full
+        type: text
+    cartegory:
+        label: 'nova.idealprint::lang.product.category'
+        nameFrom: name
+        descriptionFrom: description
+        span: auto
+        emptyOption: 'Select Category'
+        type: relation
+    brand:
+        label: 'nova.idealprint::lang.product.brand'
+        nameFrom: name
+        descriptionFrom: description
+        emptyOption: 'Select Brand'
+        span: auto
+        type: relation
+    field:
+        label: 'nova.idealprint::lang.product.field'
+        nameFrom: name
+        descriptionFrom: description
+        emptyOption: 'Select Field'
+        span: auto
+        type: relation
+    colors:
+        label: 'nova.idealprint::lang.product.color'
+        span: auto
+        type: color
+    description:
+        label: 'nova.idealprint::lang.product.description'
+        size: ''
+        span: full
+        type: richeditor
+    content:
+        label: 'nova.idealprint::lang.product.content'
+        size: ''
+        span: full
+        type: richeditor
+    image:
+        label: 'nova.idealprint::lang.product.image'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        imageWidth: '200'
+        type: fileupload
+    gallery:
+        label: 'nova.idealprint::lang.product.gallery'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: auto
+        type: fileupload

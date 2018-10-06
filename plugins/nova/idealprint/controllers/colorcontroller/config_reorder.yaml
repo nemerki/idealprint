@@ -1,0 +1,5 @@
+title: ColorController
+modelClass: Nova\Idealprint\Models\Color
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

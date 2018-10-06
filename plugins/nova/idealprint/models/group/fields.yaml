@@ -1,0 +1,10 @@
+fields:
+    is_active:
+        label: 'nova.idealprint::lang.all.status'
+        span: full
+        default: 1
+        type: switch
+    name:
+        label: 'nova.idealprint::lang.all.name'
+        span: full
+        type: text

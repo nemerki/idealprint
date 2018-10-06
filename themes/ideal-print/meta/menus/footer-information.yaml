@@ -1,0 +1,50 @@
+name: 'Footer Information'
+items:
+    -
+        title: Contact
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: Contact
+        reference: contact
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: Brand
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: Brand
+        reference: allbrand
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: About
+        nesting: ''
+        type: cms-page
+        url: ''
+        code: About
+        reference: about
+        cmsPage: ''
+        replace: ''
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'
+    -
+        title: News
+        type: cms-page
+        code: News
+        reference: news
+        viewBag:
+            isHidden: '0'
+            cssClass: ''
+            isExternal: '0'

@@ -1,0 +1,15 @@
+fields:
+    is_active:
+        label: 'nova.idealprint::lang.all.status'
+        span: full
+        default: 1
+        type: switch
+    name:
+        label: 'nova.idealprint::lang.all.name'
+        span: auto
+        type: text
+    color_code:
+        label: 'nova.idealprint::lang.color.code'
+        span: auto
+        type: text
+        comment: 'Hex Code Example: #RRGGBB'

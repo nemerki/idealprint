@@ -1,0 +1,100 @@
+title = "Group"
+url = "/group/:slug"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[Group]
+
+[Filter]
+==
+<div id="content">
+
+    <!-- Products -->
+    <section class="padding-top-40 padding-bottom-60">
+        <div class="container">
+            <div class="row">
+
+
+                {% partial "sidebar"  partialsRecords = group %}
+
+
+
+                <!-- Products -->
+                <div class="col-md-9">
+
+               {#     <!-- Short List -->
+                    <div class="short-lst">
+                        <h2>{{ category.name|upper }}</h2>
+
+                    </div>#}
+
+                    <!-- Items -->
+                    <div class="item-col-3 partialsDiv categoryProduct ">
+                        {% partial "categoryProduct"  partialsRecords = products %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Your Recently Viewed Items -->
+    <section class="padding-bottom-60">
+        <div class="container">
+
+            <!-- heading -->
+            <div class="heading">
+                <h2>Seçılmış Mehsullar</h2>
+                <hr>
+            </div>
+            <!-- Items Slider -->
+            <div class="item-slide-5 with-nav">
+                {% for rec in seleced.records %}
+                    <!-- Product -->
+                    <div class="product">
+                        <article><img class="img-responsive" src="{{ rec.image| resize(242, 242, { mode: 'crop', quality: '60' }) }}" alt="">
+                            <!-- Content -->
+                            <span class="tag">{{ rec.category.name }}</span>
+                            <a href="{{ 'product-detail'|page({ slug: rec.slug })  }}" class="tittle">{{ rec.title }}</a>
+
+                        </article>
+                    </div>
+                {% endfor %}
+
+
+            </div>
+        </div>
+    </section>
+
+
+</div>
+{% put scripts %}
+
+    <script>
+        $(document).ready(function () {
+
+            $(document).on('click', '.ajaxPagination', function (e) {
+                e.preventDefault();
+                var array = $(this).attr('href').split('=');
+                var page = array[array.length - 1];
+                console.log(page);
+                $.oc.stripeLoadIndicator.show()
+
+                $.request('onPaginate', {
+
+
+                    update: {"categoryProduct": '.partialsDiv'},
+                    data: {perPage: page},
+                    complete: function () {
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+
+                });
+            });
+        });
+
+    </script>
+
+{% endput %}

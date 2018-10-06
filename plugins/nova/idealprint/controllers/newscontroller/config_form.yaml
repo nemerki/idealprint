@@ -1,0 +1,11 @@
+name: NewsController
+modelClass: Nova\Idealprint\Models\News
+form: $/nova/idealprint/models/news/fields.yaml
+defaultRedirect: nova/idealprint/newscontroller
+create:
+    redirect: 'nova/idealprint/newscontroller/update/:id'
+    redirectClose: nova/idealprint/newscontroller
+update:
+    redirect: nova/idealprint/newscontroller
+    redirectClose: nova/idealprint/newscontroller
+preview: {  }

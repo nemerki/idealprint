@@ -1,0 +1,10 @@
+name: BannerController
+form: $/nova/idealprint/models/bannr/fields.yaml
+modelClass: Nova\Idealprint\Models\Bannr
+defaultRedirect: nova/idealprint/bannercontroller
+create:
+    redirect: 'nova/idealprint/bannercontroller/update/:id'
+    redirectClose: nova/idealprint/bannercontroller
+update:
+    redirect: nova/idealprint/bannercontroller
+    redirectClose: nova/idealprint/bannercontroller

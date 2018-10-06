@@ -1,0 +1,100 @@
+plugin:
+    name: 'nova.idealprint::lang.plugin.name'
+    description: 'nova.idealprint::lang.plugin.description'
+    author: Nova
+    icon: oc-icon-print
+    homepage: ''
+permissions:
+    manage_idealprint:
+        tab: 'nova.idealprint::lang.permision.idealprint'
+        label: 'nova.idealprint::lang.permision.manage_idealprint'
+    manage_category:
+        tab: 'nova.idealprint::lang.permision.idealprint'
+        label: 'nova.idealprint::lang.permision.manage_category'
+    manage_color:
+        tab: 'nova.idealprint::lang.permision.idealprint'
+        label: 'nova.idealprint::lang.permision.manage_color'
+    manage_brand:
+        tab: 'nova.idealprint::lang.permision.idealprint'
+        label: 'nova.idealprint::lang.permision.manage_brand'
+    manage_field:
+        tab: 'nova.idealprint::lang.permision.idealprint'
+        label: 'nova.idealprint::lang.permision.f,eld'
+    manage_group:
+        tab: 'nova.idealprint::lang.permision.idealprint'
+        label: 'nova.idealprint::lang.permision.manage_group'
+    manage_product:
+        tab: 'nova.idealprint::lang.permision.idealprint'
+        label: 'nova.idealprint::lang.permision.product'
+    manage_news:
+        tab: 'nova.idealprint::lang.permision.idealprint'
+        label: 'nova.idealprint::lang.permision.manage_news'
+    manage_slider:
+        tab: 'nova.idealprint::lang.permision.idealprint'
+        label: 'nova.idealprint::lang.permision.manag_slider'
+    manage_banner:
+        tab: 'nova.idealprint::lang.permision.idealprint'
+        label: 'nova.idealprint::lang.permision.manage_banner'
+navigation:
+    menu_idealprint:
+        label: 'nova.idealprint::lang.menu.idealprint'
+        url: nova/idealprint/productcontroller
+        icon: icon-print
+        permissions:
+            - manage_idealprint
+        order: '99'
+        sideMenu:
+            side-menu-product:
+                label: 'nova.idealprint::lang.menu.product'
+                url: nova/idealprint/productcontroller
+                icon: icon-shopping-cart
+                permissions:
+                    - manage_product
+            side-menu-category:
+                label: 'nova.idealprint::lang.menu.category'
+                url: nova/idealprint/categorycontroller
+                icon: icon-sitemap
+                permissions:
+                    - manage_category
+            side-menu-color:
+                label: 'nova.idealprint::lang.menu.color'
+                url: nova/idealprint/colorcontroller
+                icon: icon-spinner
+                permissions:
+                    - manage_color
+            side-menu-brand:
+                label: 'nova.idealprint::lang.menu.brand'
+                url: nova/idealprint/brandcontroller
+                icon: icon-slack
+                permissions:
+                    - manage_brand
+            side-menu-field:
+                label: 'nova.idealprint::lang.menu.field'
+                url: nova/idealprint/fieldcontroller
+                icon: icon-yelp
+                permissions:
+                    - manage_field
+            side-menu-group:
+                label: 'nova.idealprint::lang.menu.group'
+                url: nova/idealprint/groupcontroller
+                icon: icon-support
+                permissions:
+                    - manage_group
+            side-menu-item:
+                label: 'nova.idealprint::lang.menu.news'
+                url: nova/idealprint/newscontroller
+                icon: icon-newspaper-o
+                permissions:
+                    - manage_news
+            side-menu-slider:
+                label: 'nova.idealprint::lang.menu.slider'
+                url: nova/idealprint/slidercontroller
+                icon: icon-sliders
+                permissions:
+                    - manage_slider
+            side-menu-banner:
+                label: 'nova.idealprint::lang.menu.banner'
+                url: nova/idealprint/bannercontroller
+                icon: icon-simplybuilt
+                permissions:
+                    - manage_banner

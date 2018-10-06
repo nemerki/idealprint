@@ -1,0 +1,10 @@
+name: CategoryController
+form: $/nova/idealprint/models/cartegory/fields.yaml
+modelClass: Nova\Idealprint\Models\Cartegory
+defaultRedirect: nova/idealprint/categorycontroller
+create:
+    redirect: 'nova/idealprint/categorycontroller/update/:id'
+    redirectClose: nova/idealprint/categorycontroller
+update:
+    redirect: nova/idealprint/categorycontroller
+    redirectClose: nova/idealprint/categorycontroller

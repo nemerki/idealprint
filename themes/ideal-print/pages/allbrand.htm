@@ -1,0 +1,49 @@
+title = "All Brand"
+url = "/allbrand"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[ru] = "/brend"
+
+[RecordList brand]
+modelClass = "Nova\Idealprint\Models\Brand"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+recordsPerPage = 12
+pageNumber = "{{ :page }}"
+sortColumn = "name"
+sortDirection = "asc"
+whereIsActive = 1
+==
+<section class="padding-top-40 padding-bottom-60">
+      <div class="container">
+        <div class="row"> 
+          
+          <!-- Shop Side Bar -->
+
+          <!-- Products -->
+          <div class="col-md-12">
+            
+
+            
+            <!-- Items -->
+            <div class="item-col-4"> 
+              <!-- Product -->
+              {% partial "brandItem"  partialsRecords = brand.records %}
+
+
+
+
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>

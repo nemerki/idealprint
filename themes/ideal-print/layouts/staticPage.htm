@@ -1,0 +1,139 @@
+[staticPage]
+useContent = 1
+default = 0
+
+[staticMenu digitalMarketing]
+code = "digital-marketing"
+
+[RecordList group]
+modelClass = "Nova\Idealprint\Models\Group"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+
+[RecordList field]
+modelClass = "Nova\Idealprint\Models\Field"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+sortColumn = "sort_order"
+sortDirection = "asc"
+whereIsActive = 1
+
+[RecordList category]
+modelClass = "Nova\Idealprint\Models\Cartegory"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+whereIsActive = 1
+
+[staticMenu]
+code = "digital-marketing"
+
+[localePicker]
+forceUrl = 0
+
+[formSubscribe]
+urlToUnsubscribe = "unsubscribe"
+urlToProfile = "subscriber-profile"
+geo = "enabled"
+thanksMessage = "Thanks for subscribe!"
+errorMessage = "Email already exists!"
+
+[RecordList brand]
+modelClass = "Nova\Idealprint\Models\Brand"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "name"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+whereIsActive = 1
+
+[RecordList seleced]
+modelClass = "Nova\Idealprint\Models\Product"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "-"
+detailsUrlParameter = "id"
+pageNumber = "{{ :page }}"
+sortColumn = "created_at"
+sortDirection = "desc"
+whereIsActive = 1
+whereColumn = "is_selected"
+whereOperator = "="
+whereKey = 1
+take = 15
+==
+<!doctype html>
+<html class="no-js" >
+<head>
+    {% component 'SeoCmsPage' %}
+    {% partial "layout/head" %}
+    {% styles %}
+</head>
+<body>
+
+<!-- Page Wrapper -->
+<div id="wrap" class="layout-1">
+
+  <!-- Top bar -->
+{% partial "layout/topbar" %}
+
+
+  <!-- Header -->
+  {% partial "layout/header" %}
+
+  <!-- Content -->
+  <div id="content">
+  <div class="container">
+    {% page %}
+</div>
+ </div>
+
+    <!-- Footer -->
+    {% partial "layout/footer" %}
+
+  <!-- Rights -->
+  <div class="rights">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6">
+          <p>Copyright © 2017 <a href="#." class="ri-li"> SmartTech </a>HTML5 template. All rights reserved</p>
+        </div>
+        <div class="col-sm-6 text-right"> <img src="images/card-icon.png" alt=""> </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End Footer -->
+
+  <!-- GO TO TOP  -->
+  <a href="#" class="cd-top"><i class="fa fa-angle-up"></i></a>
+  <!-- GO TO TOP End -->
+</div>
+<!-- End Page Wrapper -->
+
+
+{% partial "layout/foot" %}
+
+{% framework extras %}
+{% scripts %}
+
+</body>
+</html>

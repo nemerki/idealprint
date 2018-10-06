@@ -1,0 +1,5 @@
+title: GroupController
+modelClass: Nova\Idealprint\Models\Group
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

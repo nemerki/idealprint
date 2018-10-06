@@ -1,0 +1,62 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table nova_idealprint_categories'
+    - builder_table_create_nova_idealprint_categories.php
+1.0.3:
+    - 'Created table nova_idealprint_colors'
+    - builder_table_create_nova_idealprint_colors.php
+1.0.4:
+    - 'Created table nova_idealprint_brands'
+    - builder_table_create_nova_idealprint_brands.php
+1.0.5:
+    - 'Updated table nova_idealprint_categories'
+    - builder_table_update_nova_idealprint_categories.php
+1.0.6:
+    - 'Created table nova_idealprint_fields'
+    - builder_table_create_nova_idealprint_fields.php
+1.0.7:
+    - 'Created table nova_idealprint_groups'
+    - builder_table_create_nova_idealprint_groups.php
+1.0.8:
+    - 'Created table nova_idealprint_categories_groups'
+    - builder_table_create_nova_idealprint_categories_groups.php
+1.0.9:
+    - 'Updated table nova_idealprint_categories_groups'
+    - builder_table_update_nova_idealprint_categories_groups.php
+1.0.10:
+    - 'Updated table nova_idealprint_categories_groups'
+    - builder_table_update_nova_idealprint_categories_groups_2.php
+1.0.11:
+    - 'Created table nova_idealprint_products'
+    - builder_table_create_nova_idealprint_products.php
+1.0.12:
+    - 'Updated table nova_idealprint_products'
+    - builder_table_update_nova_idealprint_products.php
+1.0.13:
+    - 'Created table nova_idealprint_colors_products'
+    - builder_table_create_nova_idealprint_colors_products.php
+1.0.14:
+    - 'Updated table nova_idealprint_products'
+    - builder_table_update_nova_idealprint_products_2.php
+1.0.15:
+    - 'Created table nova_idealprint_news'
+    - builder_table_create_nova_idealprint_news.php
+1.0.16:
+    - 'Updated table nova_idealprint_products'
+    - builder_table_update_nova_idealprint_products_3.php
+1.0.17:
+    - 'Updated table nova_idealprint_news'
+    - builder_table_update_nova_idealprint_news.php
+1.0.18:
+    - 'Created table nova_idealprint_sliders'
+    - builder_table_create_nova_idealprint_sliders.php
+1.0.19:
+    - 'Created table nova_idealprint_banner'
+    - builder_table_create_nova_idealprint_banner.php
+1.0.20:
+    - 'Updated table nova_idealprint_banner'
+    - builder_table_update_nova_idealprint_banner.php
+1.0.21:
+    - 'Updated table nova_idealprint_banner'
+    - builder_table_update_nova_idealprint_banner_2.php

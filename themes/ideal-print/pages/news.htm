@@ -1,0 +1,69 @@
+title = "News"
+url = "/news/:page?"
+layout = "default"
+is_hidden = 0
+robot_index = "index"
+robot_follow = "follow"
+
+[viewBag]
+localeUrl[ru] = "/news"
+
+[RecordList news]
+modelClass = "Nova\Idealprint\Models\News"
+scope = "-"
+scopeValue = "{{ :scope }}"
+displayColumn = "title"
+noRecordsMessage = "No records found"
+detailsPage = "news-detail"
+detailsKeyColumn = "slug"
+detailsUrlParameter = "slug"
+recordsPerPage = 12
+pageNumber = "{{ :page }}"
+sortColumn = "created_at"
+sortDirection = "desc"
+whereIsActive = 1
+==
+<!-- Content -->
+<div id="content">
+
+
+    <!-- Blog -->
+    <section class="blog-page padding-top-30 padding-bottom-60">
+        <div class="container">
+            <div class="row newsItem">
+                {% partial "newsItem"  partialsRecords = news.records %}
+            </div>
+        </div>
+    </section>
+
+
+</div>
+<!-- End Content -->
+
+{% put scripts %}
+
+    <script>
+        $(document).ready(function () {
+
+            $(document).on('click', '.ajaxPagination', function (e) {
+                e.preventDefault();
+                var array = $(this).attr('href').split('=');
+                var page = array[array.length - 1];
+                console.log(page);
+                $.oc.stripeLoadIndicator.show()
+
+                $.request('onPaginate', {
+                    update: {"newsItem": '.newsItem'},
+                    data: {perPage: page},
+                    complete: function () {
+                        $.oc.stripeLoadIndicator.hide()
+                    }
+
+
+                });
+            });
+        });
+
+    </script>
+
+{% endput %}

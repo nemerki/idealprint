@@ -1,0 +1,10 @@
+name: BrandController
+form: $/nova/idealprint/models/brand/fields.yaml
+modelClass: Nova\Idealprint\Models\Brand
+defaultRedirect: nova/idealprint/brandcontroller
+create:
+    redirect: 'nova/idealprint/brandcontroller/update/:id'
+    redirectClose: nova/idealprint/brandcontroller
+update:
+    redirect: nova/idealprint/brandcontroller
+    redirectClose: nova/idealprint/brandcontroller

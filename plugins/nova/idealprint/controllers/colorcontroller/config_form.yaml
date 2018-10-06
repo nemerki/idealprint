@@ -1,0 +1,10 @@
+name: ColorController
+form: $/nova/idealprint/models/color/fields.yaml
+modelClass: Nova\Idealprint\Models\Color
+defaultRedirect: nova/idealprint/colorcontroller
+create:
+    redirect: 'nova/idealprint/colorcontroller/update/:id'
+    redirectClose: nova/idealprint/colorcontroller
+update:
+    redirect: nova/idealprint/colorcontroller
+    redirectClose: nova/idealprint/colorcontroller

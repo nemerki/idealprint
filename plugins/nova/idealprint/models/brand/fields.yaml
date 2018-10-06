@@ -1,0 +1,20 @@
+fields:
+    is_active:
+        label: 'nova.idealprint::lang.all.status'
+        span: full
+        default: 1
+        type: switch
+    name:
+        label: 'nova.idealprint::lang.all.name'
+        span: full
+        type: text
+    logo:
+        label: 'nova.idealprint::lang.all.logo'
+        mode: image
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            extension: auto
+        span: full
+        imageWidth: '200'
+        type: fileupload

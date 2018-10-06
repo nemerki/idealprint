@@ -1,0 +1,141 @@
+# ===================================
+#  Field Definitions
+# ===================================
+
+tabs:
+    fields:
+
+        site_name:
+            label: Site name
+            comment: The website name as it should appear on the front-end
+            tab: General informations
+            default: Ideal Print
+            readOnly: true
+            span: auto
+
+
+        author:
+            label: Author
+            tab: General informations
+            readOnly: true
+            comment: Website Author Company
+            default: NOVA Digital Solution
+            span: auto
+
+
+        top_bar_text:
+            label: Top Bar Text
+            comment: The website top bar left text
+            tab: General informations
+            default: Welcome to Ideal Print center!
+            span: auto
+
+        copyright_text:
+            label: Copyright
+            comment: The copyright text as it should appear on the footer bottom side
+            tab: General informations
+            default: Ideal Print
+            span: auto
+
+        address:
+            label: Address
+            type: textarea
+            tab: Contact informations
+            span: full
+
+        map_api:
+            label: Google Maps Api Code
+            tab: Contact informations
+            span: full
+        map_lat:
+            label: Google Maps Latitude
+            comment: Example 40.419494
+            tab: Contact informations
+            span: auto
+
+        map_lan:
+            label: Google Maps Longitude
+            comment: Example 49.870311
+            tab: Contact informations
+            span: auto
+
+        mobile:
+            label: Mobile number
+            tab: Contact informations
+            span: auto
+
+        office:
+            label: Office number
+            tab: Contact informations
+            span: auto
+
+
+        email:
+            label: E-mail
+            tab: Contact informations
+            span: auto
+
+        facebook:
+            label: Facebook
+            tab: Contact informations
+            span: auto
+
+        youtube:
+            label: Youtube
+            tab: Contact informations
+            span: auto
+
+        twitter:
+            label: Twitter
+            tab: Contact informations
+            span: auto
+
+        instagram:
+            label: Instagram
+            tab: Contact informations
+            span: auto
+
+        googleplus:
+            label: Google Plus
+            tab: Contact informations
+            span: auto
+
+
+
+        site_logo:
+            label: Site logo
+            comment: The logo will be used in the website <b><i>(80x75)</i></b>
+            commentHtml: true
+            required: true
+            tab: Logos
+            type: fileupload
+            mode: image
+            span: auto
+            imageHeight: 75
+            imageWidth: 80
+            filetypes: svg
+
+
+        footer_logo:
+            label: Footer logo
+            comment: The logo will be used in the website <b><i>(80x75)</i></b>
+            commentHtml: true
+            required: true
+            tab: Logos
+            type: fileupload
+            mode: image
+            span: auto
+            attachMany: true
+            attachOnUpload: true
+            imageHeight: 75
+            imageWidth: 80
+            filetypes: png
+            thumbOptions:
+                mode: crop
+                quality: 100
+                extension: auto
+
+
+
+
+

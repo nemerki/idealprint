@@ -1,0 +1,58 @@
+<?php return [
+    'plugin' => [
+        'name' => 'Idealprint',
+        'description' => '',
+    ],
+    'all' => [
+        'name' => 'Name',
+        'status' => 'Status',
+        'logo' => 'Logo',
+        'title' => 'Title',
+        'add_home' => 'Add Home',
+    ],
+    'permision' => [
+        'idealprint' => 'Ideal Print',
+        'manage_idealprint' => 'İdeal Print',
+        'manage_category' => 'Category',
+        'manage_color' => 'Manage Color',
+        'manage_brand' => 'Brand',
+        'f,eld' => 'Field',
+        'manage_field' => 'Field',
+        'manage_group' => 'Group',
+        'product' => 'Product',
+        'manage_news' => 'News',
+    ],
+    'menu' => [
+        'idealprint' => 'İdeal Print',
+        'category' => 'Category',
+        'color' => 'Color',
+        'brand' => 'Brand',
+        'field' => 'Field',
+        'group' => 'Group',
+        'product' => 'Product',
+        'news' => 'News',
+    ],
+    'color' => [
+        'code' => 'Color Code',
+    ],
+    'category' => [
+        'group' => 'Group',
+    ],
+    'product' => [
+        'category' => 'Category',
+        'brand' => 'Brand',
+        'field' => 'Field',
+        'color' => 'Color',
+        'description' => 'Description',
+        'content' => 'Content',
+        'image' => 'Image',
+        'gallery' => 'Gallery',
+        'selected' => 'Selected Product',
+        'recommend' => 'Recommend Product',
+    ],
+    'news' => [
+        'image' => 'Image',
+        'content' => 'Content',
+        'description' => 'Description',
+    ],
+];

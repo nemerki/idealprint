@@ -1,0 +1,11 @@
+columns:
+    content:
+        label: 'nova.idealprint::lang.product.content'
+        type: text
+        searchable: true
+        sortable: true
+    is_active:
+        label: 'nova.idealprint::lang.all.status'
+        type: text
+        searchable: true
+        sortable: true

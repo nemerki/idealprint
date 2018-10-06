@@ -1,0 +1,6 @@
+name: 'Ideal Print'
+description: 'Web site for Ideal Print'
+author: 'NOVA Digital Solutions'
+homepage: 'http://www.idealprint.az'
+form: theme_fields.yaml
+code: novadigitalsolutions-ideal-print

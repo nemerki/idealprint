@@ -1,0 +1,10 @@
+name: SliderController
+form: $/nova/idealprint/models/slider/fields.yaml
+modelClass: Nova\Idealprint\Models\Slider
+defaultRedirect: nova/idealprint/slidercontroller
+create:
+    redirect: 'nova/idealprint/slidercontroller/update/:id'
+    redirectClose: nova/idealprint/slidercontroller
+update:
+    redirect: nova/idealprint/slidercontroller
+    redirectClose: nova/idealprint/slidercontroller

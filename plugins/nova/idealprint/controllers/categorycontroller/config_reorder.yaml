@@ -1,0 +1,5 @@
+title: CategoryController
+modelClass: Nova\Idealprint\Models\Cartegory
+nameFrom: name
+toolbar:
+    buttons: reorder_toolbar

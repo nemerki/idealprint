@@ -1,0 +1,19 @@
+{% for rec in partialsRecords %}
+    <!-- Product -->
+    <div class="product  col-md-4">
+        <article>
+            <a href="{{ 'brand'|page({ slug: rec.slug }) }}" class="tittle">
+                <img class="img-responsive" src="{{ rec.logo| resize(242, 242, { mode: 'crop', quality: '60' }) }}"
+                     alt="">
+            </a>
+
+            <!-- Content -->
+            <a href="{{ 'brand'|page({ slug: rec.slug }) }}" class="tittle">{{ rec.name }}</a>
+        </article>
+    </div>
+{% endfor %}
+
+<div style="float: left; width: 100%; padding-left: 15px;">
+    <!-- pagination -->
+
+</div>

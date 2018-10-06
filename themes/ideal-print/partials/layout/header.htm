@@ -1,0 +1,19 @@
+<header>
+    <div class="container">
+        <div class="logo">
+            <a href="{{ 'homepage'|page }}"><img src="{{ this.theme.site_logo.path }}" alt="" ></a> </div>
+        <div class="search-cate">
+            <form  action="{{ 'search' | page }}" method="get">
+                <input type="search" name="q" placeholder="Search entire store here...">
+                <button class="submit" type="submit"><i class="icon-magnifier"></i></button>
+            </form>
+
+        </div>
+
+
+    </div>
+
+    <!-- Nav -->
+  {% partial "layout/nav" %}
+
+</header>
